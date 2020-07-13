@@ -1,21 +1,27 @@
-for i in range(4):
-    for j in range(4):
-        print("_  ",end='')
-    print()
-def printBoardCurrent(column,row):
-    for target1 in range(4):
-            for target2 in range(4):
-                if target2 == column and target1 == row-1:
-                    print('x  ',end='')
-                else:
-                    print('_  ',end='')
-            print()
+board = [['-   ']*4,
+         ['-   ']*4,
+         ['-   ']*4,
+         ['-   ']*4]
+def print_board():
+    for row in board:
+        for column in row:
+            print(column,end='')
+        print()
+
+print_board()
+
+def check_win():
+    #...
+    pass
+
 
 while True:
-    inp = input("yes/no:(y/n)")
+    inp = input('start(y/n):')
     if inp == 'y':
         row = int(input(">> row: "))
         column = int(input(">> column: "))
-        printBoardCurrent(column,row)
+        board[row-1][column-1] ='x   '
+        print_board()
+    
     if inp =='n':
         break
