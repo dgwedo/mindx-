@@ -2,7 +2,7 @@ for i in range(4):
     for j in range(4):
         print("_  ",end='')
     print()
-def printBroadCurrent(column,row):
+def printBoardCurrent(column,row):
     for target1 in range(4):
             for target2 in range(4):
                 if target2 == column and target1 == row-1:
@@ -16,6 +16,6 @@ while True:
     if inp == 'y':
         row = int(input(">> row: "))
         column = int(input(">> column: "))
-        printBroadCurrent(column,row)
+        printBoardCurrent(column,row)
     if inp =='n':
         break
