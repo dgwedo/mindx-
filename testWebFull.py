@@ -11,32 +11,27 @@ def print_board():
         print()
 
 print_board()
-# RiLe = ['left','right']
-# case = choice(RiLe)
+
 def check(hit,enemy,rocket):
 
-        if hit == False:
-            print("You miss")
-            print(enemy,"enemy(s) around")
-            rocket = rocket - 1
-            print(rocket,"rockets left")
-            print(enemy,"enemy(s) left")
+    if hit == False:
+        print("You miss")
+        print(enemy,"enemy(s) around")
+        print(rocket,"rockets left")
+        print(enemy,"enemy(s) left")
+        
+    if hit == True:
+        print("You hit")
+        print(enemy,"enemy(s) around")
+        print(rocket,"rockets left")
+        print(enemy,"enemy(s) left")
             
-        if hit == True:
-            print("You hit")
-            enemy = enemy-1
-            print(enemy,"enemy(s) around")
-            rocket = rocket - 1
-            print(rocket,"rockets left")
-            print(enemy,"enemy(s) left")
-            
-
+rocket = 5
+enemy = 2
+hit = False
 while True:
     inp = input('start(y/n):')
     if inp == 'y':
-        rocket = 5
-        enemy = 2
-        hit = False
 
         print('your target:')
         row = input(">> row: ")
@@ -54,10 +49,13 @@ while True:
 
         if int(row) == choice_ro and int(column)== choice_col:
             hit = True
+            rocket = rocket -1
+            enemy = enemy -1
             board[int(row)-1][int(column)-1] ='o   '
             print_board()
             check(hit,enemy,rocket)
-            if enemy == 0 :
+
+            if enemy == 0 and rocket != 0:
                 print('you win')
                 break
 
@@ -67,9 +65,11 @@ while True:
 
         if int(row) != choice_ro and int(column) != choice_col:
             hit = False
+            rocket = rocket -1
             board[int(row)-1][int(column)-1] ='x   '
             print_board()
             check(hit,enemy,rocket)
+            
             if rocket == 0 and enemy == 2:
                 print("you lose")
                 break
