@@ -14,32 +14,14 @@ print_board()
 # RiLe = ['left','right']
 # case = choice(RiLe)
 def check(hit,enemy,rocket):
-     RiLe = ['left','right']
-     case = choice(RiLe)
-     if case == 'left':
-         if hit == False:
-             print("You miss")
-             print(enemy,"enemy(s) around")
-             rocket = rocket - 1
-             print(rocket,"rockets left")
-             print(enemy,"enemy(s) left")
-             
-         if hit == True:
-            print("You hit")
-            enemy = enemy-1
+
+        if hit == False:
+            print("You miss")
             print(enemy,"enemy(s) around")
             rocket = rocket - 1
             print(rocket,"rockets left")
             print(enemy,"enemy(s) left")
             
-     if case == "right":
-        if hit == False:
-             print("You miss")
-             print(enemy,"enemy(s) around")
-             rocket = rocket - 1
-             print(rocket,"rockets left")
-             print(enemy,"enemy(s) left")
-             
         if hit == True:
             print("You hit")
             enemy = enemy-1
@@ -48,7 +30,6 @@ def check(hit,enemy,rocket):
             print(rocket,"rockets left")
             print(enemy,"enemy(s) left")
             
-
 
 while True:
     inp = input('start(y/n):')
@@ -62,11 +43,11 @@ while True:
         column = input(">> column: ")
         # board[int(row)-1][int(column)-1] ='x   '
         # print_board()
-        
+
         ro = [x for x in range(5)]
-        ro.remove(int(row))
+        # ro.remove(int(row))
         col = [y for y in range(5)]
-        col.remove(int(column))
+        # col.remove(int(column))
         choice_ro = choice(ro)
         choice_col = choice(col)
 
@@ -92,7 +73,8 @@ while True:
             if rocket == 0 and enemy == 2:
                 print("you lose")
                 break
-            
-    
+                
+        
+        
     if inp =='n':
         break
