@@ -34,20 +34,20 @@ while True:
     if inp == 'y':
 
         print('your target:')
-        row = input(">> row: ")
-        column = input(">> column: ")
+        row = input(">> row(1-4): ")
+        column = input(">> column(1-4): ")
         # board[int(row)-1][int(column)-1] ='x   '
         # print_board()
 
-        ro = [x for x in range(5)]
+        ro = [x for x in range(1,5)]
         # ro.remove(int(row))
-        col = [y for y in range(5)]
+        col = [y for y in range(1,5)]
         # col.remove(int(column))
         choice_ro = choice(ro)
         choice_col = choice(col)
 
 
-        if int(row) == choice_ro and int(column)== choice_col:
+        if choice_ro == int(row) and choice_col == int(column):
             hit = True
             rocket = rocket -1
             enemy = enemy -1
@@ -63,7 +63,7 @@ while True:
                 print("you lose")
                 break
 
-        if int(row) != choice_ro and int(column) != choice_col:
+        if choice_ro != int(row) and choice_col != int(column):
             hit = False
             rocket = rocket -1
             board[int(row)-1][int(column)-1] ='x   '
